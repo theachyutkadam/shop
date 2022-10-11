@@ -32,8 +32,8 @@
           <td>{{ customer.email }}</td>
           <td>{{ customer.contact }}</td>
           <td>{{ customer.desc }}</td>
-          <td><a class="nav-link" href="/edit">Edit</a></td>
-          <td><a class="nav-link" href="/delete">Delete</a></td>
+          <td><a href="edit/{{customer.id}}" id = '{{customer.id}}'>Edit</a></td>
+          <td><a href="delete/{{customer.id}}" id = '{{customer.id}}'>Delete</a></td>
         </tr>
       {% endfor %}
     </tbody>

@@ -4,9 +4,10 @@ from customers import views
 
 urlpatterns = [
   path('', views.welcome, name='welcome'),
-  path("create", views.create),
   path("form", views.new),
+  path("create", views.create),
+  path('edit/<int:id>', views.edit),
+  path("update", views.update),
   path("index", views.index),
-  path('edit/<int:customer_id>', views.update),
-  path('delete/<int:customer_id>', views.delete),
+  path('delete/<int:id>', views.delete),
 ]
