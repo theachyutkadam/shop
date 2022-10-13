@@ -1,0 +1,36 @@
+<div class="container mb-3 py-4">
+  <h2 class="text-center">Contact</h2>
+  <form method="post" action="/update">
+    {% csrf_token %}
+    {% block content %}
+      <h2>{{shelf.first_name}}</h2>
+    {% endblock content %}
+    <div class="form-group">
+      <label for="name">First Name</label>
+      <input type="text" class="form-control" value="{% shelf.first_name %}" id="first_name" name="first_name" placeholder="Enter Your First Name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" value="{% shelf.last_name %}" id="last_name" name="last_name" placeholder="Enter Your Last Name">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" value="{% shelf.email %}" id="email" name="email" placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="contact">Contact</label>
+      <input type="text" class="form-control" value="{% shelf.contact %}" id="contact" name="contact" placeholder="Enter Your Contact">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Tell me about yourself...</label>
+      <textarea class="form-control" value="{% shelf.desc %}" id="desc" rows="3" name="desc"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a class="nav-link" href="/">Back</a>
+  </form>
+</div>

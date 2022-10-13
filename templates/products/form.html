@@ -1,0 +1,33 @@
+<div class="container mb-3 py-4">
+  <h2 class="text-center">Contact</h2>
+  <form method="post" action="/create">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name">
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" name="price" placeholder="Enter Product Price">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Is-Available</label>
+      <input type="text" class="form-control" id="is_available" name="is_available" placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="expiry_date">ExpiryDate</label>
+      <input type="text" class="form-control" id="expiry_date" name="expiry_date" placeholder="Select ExpiryDate">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Tell me about yourself...</label>
+      <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <a class="nav-link" href="/">Back</a>
+  </form>
+</div>

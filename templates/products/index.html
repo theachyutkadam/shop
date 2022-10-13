@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+</head>
+<body>
+  <a class="nav-link" href="/">Back</a>
+  <p align="right">
+    <a class="nav-link" href="/form">New</a>
+  </p>
+  <table class="table" style="width:100%">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Is-Available</th>
+        <th scope="col">ExpireDate</th>
+        <th scope="col-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in shelf %}
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.is_available }}</td>
+          <td>{{ product.expiry_date }}</td>
+          <td>{{ product.desc }}</td>
+          <td><a href="show/{{product.id}}" id = '{{product.id}}'>Show</a></td>
+          <td><a href="edit/{{product.id}}" id = '{{product.id}}'>Edit</a></td>
+          <td><a href="delete/{{product.id}}" id = '{{product.id}}'>Delete</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

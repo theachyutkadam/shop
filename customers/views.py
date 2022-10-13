@@ -21,14 +21,14 @@ def show(request, id):
 
 def create(request):
   if request.method == "POST":
-    contact = Customer(
+    customer = Customer(
       first_name = request.POST.get('first_name'),
-      last_name = request.POST.get('first_name'),
+      last_name = request.POST.get('last_name'),
       email = request.POST.get('email'),
       contact = request.POST.get('contact'),
       desc = request.POST.get('desc'),
     )
-    contact.save()
+    customer.save()
     messages.success(request, 'Customer created successfully.')
     # messages.success(request, 'Customer create Successfully!')
   return render(request, 'welcome.html')
