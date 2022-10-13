@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from customers.models import Customer
 from customers.forms import CustomerCreate
-
+from django.contrib import messages
 # Create your views here.
 def welcome(request):
   return render(request, 'welcome.html')
@@ -14,6 +14,11 @@ def index(request):
 def new(request):
   return render(request, 'customers/form.html')
 
+def show(request, id):
+  customer_id = int(id)
+  customer = Customer.objects.get(id= customer_id)
+  return render(request, 'customers/show.html', {'customer': customer})
+
 def create(request):
   if request.method == "POST":
     contact = Customer(
@@ -24,16 +29,13 @@ def create(request):
       desc = request.POST.get('desc'),
     )
     contact.save()
+    messages.success(request, 'Customer created successfully.')
     # messages.success(request, 'Customer create Successfully!')
   return render(request, 'welcome.html')
 
 def edit(request, id):
   customer_id = int(id)
   customer = Customer.objects.get(id= customer_id)
-
-  print("+++++++++")
-  print(customer)
-  print("+++++++++")
   return render(request, 'customers/form.html', {'shelf': customer})
 
 def update(request):
@@ -53,7 +55,6 @@ def update(request):
 
 def delete(request, id):
   customer_id = int(id)
-
   try:
     customer = Customer.objects.get(id= customer_id)
   except Customer.DoesNotExist:
